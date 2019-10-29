@@ -14,3 +14,6 @@ run_list 'node_4::default'
 
 # Specify a custom source for a single cookbook:
 cookbook 'node_4', path: '.'
+
+# cookbook 'apt'
+# cookbook 'nodejs', '~> 6.0.0'
