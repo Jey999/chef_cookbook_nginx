@@ -13,6 +13,7 @@ end
 describe service "nginx" do
   it {should be_running}
   it {should be_enabled}
+  it {should be_installed}
 end
 
 # This is an example test, replace it with your own test.
@@ -23,7 +24,7 @@ end
 # describe port (8080) do
 #   it {should be_listening}
 # end
-# 
+#
 # describe port (3000) do
 #   it {should be_listening}
 # end
