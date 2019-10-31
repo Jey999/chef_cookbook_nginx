@@ -21,7 +21,7 @@ end
 template '/etc/nginx/sites-available/proxy.conf' do
   source 'proxy.conf.erb'
   variables(prox2: node['nginx']['proxy_port_mutton'],
-    proxy_port: node['nginx']['proxy_port'])
+  proxy_port: node['nginx']['proxy_port'])
   notifies :restart, 'service[nginx]'
 end
 
@@ -33,6 +33,15 @@ end
 link '/etc/nginx/sites-enabled/default' do
   action :delete
   # notifies :restart, 'service[nginx]'
+end
+
+package 'mongodb-org' do
+  options '--allow-unauthenticated'
+  action :install
+end
+
+service 'mongod' do
+  action [:enable, :start]
 end
 
 # node.default['mongodb']['package_version'] = '3.4'
